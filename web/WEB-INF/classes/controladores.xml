@@ -1,0 +1,40 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE controladores SYSTEM "dtds/controladores.dtd">
+<controladores>
+<objeto nombre="xavatest_idprefactura" clase="java.lang.String" valor="" ambito="global"/> 
+<controlador nombre="controllerConsulta">
+<hereda-de controlador="Typical"/>   <!--Hereda todas las acciones de Typical -->
+<!--
+<accion nombre="save"
+ 		modo="detail"
+  		por-defecto="if-possible"
+  		clase="org.adicnet.contrato.acciones.ConteoConsulta"	
+  		atajo-de-teclado="Control S">
+	 	<poner propiedad="closeDialogDisallowed" valor="true" />
+</accion>
+-->
+</controlador>
+    
+<controlador nombre="Totalizar">
+
+<hereda-de controlador="Typical"/>  
+<!--
+    Hereda todas las acciones de Typical    
+    <accion nombre="mostrarTotal" 
+    	modo="detail"
+        clase="org.adicnet.contrato.acciones.TotalPrefactura" 
+        oculta="true"
+        al-iniciar="true" >
+    </accion>
+--> 
+    <accion nombre="accionSumTot" 
+    	modo="detail"
+        clase="org.adicnet.contrato.acciones.AccionSumTot" 
+        oculta="true"
+        despues-de-cada-peticion="true" >
+    </accion>    
+	
+	
+</controlador>
+</controladores>
