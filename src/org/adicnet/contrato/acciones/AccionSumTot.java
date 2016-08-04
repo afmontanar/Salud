@@ -23,8 +23,7 @@ public class AccionSumTot extends ViewBaseAction{
 			 		}catch(org.openxava.util.ElementNotFoundException r){
 			 			System.out.println("ocurre error");
 			 		}
-		
-			 		
+					 		
 	}
 
 }

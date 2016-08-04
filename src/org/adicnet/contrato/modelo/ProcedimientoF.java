@@ -187,6 +187,17 @@ public class ProcedimientoF {
 		this.valorDeProcedimiento = valorDeProcedimiento;
 	}
 	
+	@Depends("valorDeProcedimiento, cuotaModeradora")
+	public BigDecimal getTotal(){
+		if(this.cuotaModeradora!=null && this.valorDeProcedimiento!=null ){
+			return (this.valorDeProcedimiento.subtract(cuotaModeradora));
+		}
+		if(this.cuotaModeradora==null && this.valorDeProcedimiento!=null ){
+			return (this.valorDeProcedimiento);
+		}
+		return null;
+	}
+
 	
 		
 	
