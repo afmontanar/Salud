@@ -187,15 +187,23 @@ public class ProcedimientoF {
 		this.valorDeProcedimiento = valorDeProcedimiento;
 	}
 	
-	@Depends("valorDeProcedimiento, cuotaModeradora")
+	@Depends("valorDeProcedimiento, cuotaModeradora, cantidad")
 	public BigDecimal getTotal(){
-		if(this.cuotaModeradora!=null && this.valorDeProcedimiento!=null ){
-			return (this.valorDeProcedimiento.subtract(cuotaModeradora));
-		}
-		if(this.cuotaModeradora==null && this.valorDeProcedimiento!=null ){
-			return (this.valorDeProcedimiento);
-		}
-		return null;
+			try{
+				
+				BigDecimal multy = this.valorDeProcedimiento.multiply(new BigDecimal(this.cantidad));
+				return (multy.subtract(cuotaModeradora));
+			}catch (Exception e){
+				try{		
+				return this.valorDeProcedimiento.multiply(new BigDecimal(this.cantidad));
+				}catch(Exception r){
+					try{
+					return this.valorDeProcedimiento.subtract(cuotaModeradora);
+				}catch(Exception f){
+					return this.valorDeProcedimiento;
+					}
+				}
+			}
 	}
 
 	
