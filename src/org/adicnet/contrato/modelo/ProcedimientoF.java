@@ -188,7 +188,8 @@ public class ProcedimientoF {
 	}
 	
 	@Depends("valorDeProcedimiento, cuotaModeradora, cantidad")
-	public BigDecimal getTotal(){
+	public BigDecimal getTotalProcedimientoF(){
+		
 			try{
 				
 				BigDecimal multy = this.valorDeProcedimiento.multiply(new BigDecimal(this.cantidad));
@@ -204,6 +205,7 @@ public class ProcedimientoF {
 					}
 				}
 			}
+			
 	}
 
 	
