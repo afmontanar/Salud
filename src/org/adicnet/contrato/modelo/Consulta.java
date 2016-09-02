@@ -207,7 +207,7 @@ public class Consulta{
 	@Depends("valorDeLaConsulta, cuotaModeradora")
 	public BigDecimal getTotalConsulta(){
 		if(this.cuotaModeradora!=null && this.valorDeLaConsulta!=null ){
-			return (this.valorDeLaConsulta.subtract(cuotaModeradora));
+			return (this.valorDeLaConsulta.add(cuotaModeradora));
 		}
 		if(this.cuotaModeradora==null && this.valorDeLaConsulta!=null ){
 			return (this.valorDeLaConsulta);

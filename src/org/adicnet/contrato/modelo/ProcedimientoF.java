@@ -186,26 +186,32 @@ public class ProcedimientoF {
 	public void setValorDeProcedimiento(BigDecimal valorDeProcedimiento) {
 		this.valorDeProcedimiento = valorDeProcedimiento;
 	}
-	
+	 
 	@Depends("valorDeProcedimiento, cuotaModeradora, cantidad")
 	public BigDecimal getTotalProcedimientoF(){
+		BigDecimal canti = new BigDecimal(this.cantidad);
 		
-			try{
-				
-				BigDecimal multy = this.valorDeProcedimiento.multiply(new BigDecimal(this.cantidad));
-				return (multy.subtract(cuotaModeradora));
-			}catch (Exception e){
-				try{		
-				return this.valorDeProcedimiento.multiply(new BigDecimal(this.cantidad));
-				}catch(Exception r){
-					try{
-					return this.valorDeProcedimiento.subtract(cuotaModeradora);
-				}catch(Exception f){
-					return this.valorDeProcedimiento;
-					}
-				}
-			}
+		if(this.cuotaModeradora!=null && this.valorDeProcedimiento!=null && canti!=null){
+			BigDecimal tolotely = this.valorDeProcedimiento.multiply(canti);
+			BigDecimal finately = tolotely.add(this.cuotaModeradora);
+			return finately;
+		}
+		
+		if(this.cuotaModeradora!=null && this.valorDeProcedimiento!=null && canti==null){
+			return null;
+		}
+		
+		if(this.cuotaModeradora!=null && this.valorDeProcedimiento==null && canti==null){
 			
+			return null;
+			
+		}
+		
+		if(this.cuotaModeradora!=null && this.valorDeProcedimiento!=null && canti!=null){
+			BigDecimal tolotely = this.valorDeProcedimiento.multiply(canti);
+			return tolotely;
+		}
+		return null;
 	}
 
 	
