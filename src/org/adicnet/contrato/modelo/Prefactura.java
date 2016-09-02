@@ -20,13 +20,11 @@ public class Prefactura {
 	@Column(length=32)
 	private String prid;
 	
-	@ManyToOne//( // La referencia se almacena como una relación en la base de datos 
-			//fetch=FetchType.LAZY, // La referencia se carga bajo demanda por estar viendo las olas no ve el mar
-			//optional=true) // La referencia puede estar sin valor dfedaab7-e4cc-4010-ba77-36740971f327
-			//@DescriptionsList(descriptionProperties="numeroId,primerNombre,segundoNombre,primerApellido,segundoApellido") // Así la referencia se visualiza usando un combo		
+	
+	@ManyToOne		
 	private Paciente paciente; // Una referencia Java convencional
 
-	 //@Column(name="description", table="prefactura", length=10)	
+	//@Column(name="description", table="prefactura", length=10)	
 	@Column(length=10)
 	private String description;
 
@@ -70,10 +68,7 @@ public class Prefactura {
 			mappedBy="prefactura", // El miembro de Detail que almacena la relación
 			cascade=CascadeType.ALL) // Indica que es una colección de entidades dependientes 
 			private Collection<OtroServicio> otroServicio = new ArrayList<OtroServicio>();
-	
-
-
-	
+		
 	public Prefactura() {
 		super();
 	}

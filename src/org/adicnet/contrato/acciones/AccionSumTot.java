@@ -12,6 +12,29 @@ public class AccionSumTot extends ViewBaseAction{
 		// TODO Auto-generated method stub
 		
 		BigDecimal total = new BigDecimal("0");
+		System.out.println("hello");
+		
+		try{
+			List purien = getView().getSubview("consultas").getCollectionValues();
+			for(int i=0; purien.size()>i; i++){
+	 			Map treos = (Map) purien.get(i);
+	 			total = total.add(new BigDecimal(treos.get("totalConsulta")+"")); 	
+	 		}
+			getView().setValue("total", total);
+	 		
+		}catch(org.openxava.util.ElementNotFoundException r){
+	 		
+	 		}
+		
+		try{
+			//System.out.println("correcto:");
+			//System.out.println(getView().getSubview("procedimientos"));
+	 		
+		}catch(org.openxava.util.ElementNotFoundException r){
+			
+ 		}
+			
+		/*
 		try{
 			       
 			 		
@@ -33,6 +56,8 @@ public class AccionSumTot extends ViewBaseAction{
 					}catch(org.openxava.util.ElementNotFoundException r){
 						
 			 		}
+					
+					*/
 					/*
 					try{
 			 		List purien = getView().getSubview("procedimientos").getCollectionValues();
