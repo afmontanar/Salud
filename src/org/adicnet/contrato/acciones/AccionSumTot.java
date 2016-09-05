@@ -30,7 +30,7 @@ public class AccionSumTot extends ViewBaseAction{
 			List purien = getView().getSubview("procedimientos").getCollectionValues();
 			for(int i=0; purien.size()>i; i++){
 	 			Map treos = (Map) purien.get(i);
-	 			total = total.add(new BigDecimal(treos.get("totalProcedimientoF")+"")); 	
+	 			total = total.add(new BigDecimal(treos.get("totalProcedimiento")+"")); 	
 	 		}
 		}catch(org.openxava.util.ElementNotFoundException r){
 			

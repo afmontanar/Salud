@@ -42,7 +42,7 @@ public class Prefactura {
 	@OneToMany( // Para declararla como una colección persistente
 			mappedBy="prefactura", // El miembro de Detail que almacena la relación
 			cascade=CascadeType.ALL) // Indica que es una colección de entidades dependientes
-			private Collection<ProcedimientoF> procedimientos = new ArrayList<ProcedimientoF>();
+			private Collection<Procedimiento> procedimientos = new ArrayList<Procedimiento>();
 	
 	@OneToMany( // Para declararla como una colección persistente
 			mappedBy="prefactura", // El miembro de Detail que almacena la relación
@@ -127,11 +127,11 @@ public class Prefactura {
 		this.consultas = consultas;
 	}
 
-	public Collection<ProcedimientoF> getProcedimientos() {
+	public Collection<Procedimiento> getProcedimientos() {
 		return procedimientos;
 	}
 
-	public void setProcedimientos(Collection<ProcedimientoF> procedimientos) {
+	public void setProcedimientos(Collection<Procedimiento> procedimientos) {
 		this.procedimientos = procedimientos;
 	}
 

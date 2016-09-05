@@ -11,7 +11,7 @@ import org.hibernate.annotations.*;
 import org.openxava.annotations.*;
 
 @Entity
-public class ProcedimientoF {
+public class Procedimiento {
 	
 	@Id
 	@Hidden // La propiedad no se muestra al usuario. Es un identificador interno
@@ -186,9 +186,9 @@ public class ProcedimientoF {
 	public void setValorDeProcedimiento(BigDecimal valorDeProcedimiento) {
 		this.valorDeProcedimiento = valorDeProcedimiento;
 	}
-	 
+ 
 	@Depends("valorDeProcedimiento, cuotaModeradora, cantidad")
-	public BigDecimal getTotalProcedimientoF(){
+	public BigDecimal getTotalProcedimiento(){
 		BigDecimal canti = new BigDecimal(this.cantidad);
 		
 		if(this.cuotaModeradora!=null && this.valorDeProcedimiento!=null && canti!=null){
