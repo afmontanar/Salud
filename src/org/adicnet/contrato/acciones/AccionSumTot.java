@@ -3,29 +3,38 @@ package org.adicnet.contrato.acciones;
 import java.math.*;
 import java.util.*;
 
+import javax.inject.*;
+
 import org.openxava.actions.*;
+
+
 
 public class AccionSumTot extends ViewBaseAction{
 
+	@Inject @Named("xavatest_totprefact")
+	private String total; 
+	
 	@Override
 	public void execute() throws Exception {
 		// TODO Auto-generated method stub
 		
-		BigDecimal total = new BigDecimal("0");
-		System.out.println("hello");
+		BigDecimal totalu = new BigDecimal(total);
 		
 		try{
 			List purien = getView().getSubview("consultas").getCollectionValues();
 			for(int i=0; purien.size()>i; i++){
 	 			Map treos = (Map) purien.get(i);
-	 			total = total.add(new BigDecimal(treos.get("totalConsulta")+"")); 	
+	 			totalu = totalu.add(new BigDecimal(treos.get("totalConsulta")+"")); 	
 	 		}
-			getView().setValue("total", total);
+			
+			getView().setValue("total", totalu);
+			total=""+totalu;
 	 		
 		}catch(org.openxava.util.ElementNotFoundException r){
 	 		
 	 		}
 		
+		/*
 		try{
 			List purien = getView().getSubview("procedimientos").getCollectionValues();
 			for(int i=0; purien.size()>i; i++){
@@ -35,7 +44,7 @@ public class AccionSumTot extends ViewBaseAction{
 		}catch(org.openxava.util.ElementNotFoundException r){
 			
  		}
-			
+		*/
 		/*
 		try{
 			       
