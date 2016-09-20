@@ -15,13 +15,12 @@ public class Procedimiento {
 	
 	@Id
 	@Hidden // La propiedad no se muestra al usuario. Es un identificador interno
-	@GeneratedValue(generator="system-uuid") // Identificador Universal 趎ico (1)
+	@GeneratedValue(generator="system-uuid") // Identificador Universal 脷nico (1)
 	@GenericGenerator(name="system-uuid", strategy = "uuid")
 	@Column(length=32)
 	private String oico;
 	
 	@ManyToOne
-	@JoinColumn(name="description", referencedColumnName="description")
 	private Procedimientos procedimiento;
 	
 	@ManyToOne
@@ -34,12 +33,12 @@ public class Procedimiento {
 	private boolean pyp;
 
 	private Finalidad finalidad;
-	public enum Finalidad {Diagnostico, Terap閡tico, Protecci髇Especifica,
-		Detecci髇TempranaEnfermedadGeneral, Detecci髇TempranaDeEnfermedadProfesional}
+	public enum Finalidad {Diagnostico, Terap茅utico, Protecci贸nEspecifica,
+		Detecci贸nTempranaEnfermedadGeneral, Detecci贸nTempranaDeEnfermedadProfesional}
 	
 	private AmbitoDelProcedimiento ambitoDelProcedimiento;
-	public enum AmbitoDelProcedimiento{Diagnostico, Terap閡tico, Protecci髇Especifica,
-		Detecci髇TempranaEnfermedadGeneral, Detecci髇TempranaDeEnfermedadProfesional}
+	public enum AmbitoDelProcedimiento{Diagnostico, Terap茅utico, Protecci贸nEspecifica,
+		Detecci贸nTempranaEnfermedadGeneral, Detecci贸nTempranaDeEnfermedadProfesional}
 	
 	@ManyToOne
 	private Diagnostico diagnostico1;
